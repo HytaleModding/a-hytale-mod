@@ -91,12 +91,12 @@ tasks.named('build') {
     dependsOn 'shadowJar'
 }
 
-if (hasHytaleHome) {
-    def serverRunDir = file("$projectDir/run")
-    if (!serverRunDir.exists()) {
-        serverRunDir.mkdirs()
-    }
+def serverRunDir = file("$projectDir/run")
+if (!serverRunDir.exists()) {
+    serverRunDir.mkdirs()
+}
 
+if (hasHytaleHome) {
     def createServerRunArguments = { String srcDir ->
         def programParameters = '--allow-op --disable-sentry --assets="' + "${hytaleHome}/install/$patchline/package/game/latest/Assets.zip" + '"'
         def modPaths = []
@@ -115,27 +115,48 @@ if (hasHytaleHome) {
     def serverJar = file("$hytaleHome/install/$patchline/package/game/latest/Server/HytaleServer.jar")
     def assetsZip = file("$hytaleHome/install/$patchline/package/game/latest/Assets.zip")
     def shadowJarTask = tasks.named('shadowJar')
+    def runModsDir = file("$serverRunDir/mods")
 
     tasks.register('runServerJar', JavaExec) {
         dependsOn shadowJarTask
+        group = 'hytale'
+        description = 'Runs the Hytale server with this plugin loaded.'
         mainClass = 'com.hypixel.hytale.Main'
         classpath = files(serverJar)
         workingDir = serverRunDir.absolutePath
+        standardInput = System.in
+        if (project.hasProperty('debug')) {
+            jvmArgs '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
+        }
+        if (System.getenv('HYTALE_JAVA_OPTS')) {
+            jvmArgs System.getenv('HYTALE_JAVA_OPTS').split(/\s+/)
+        }
         doFirst {
-            def modPaths = [shadowJarTask.get().archiveFile.get().asFile.absolutePath]
+            runModsDir.mkdirs()
+            copy {
+                from shadowJarTask.get().archiveFile
+                into runModsDir
+            }
+
+            def modPaths = []
             if (load_user_mods.toBoolean()) {
                 modPaths << "${hytaleHome}/UserData/Mods"
             }
-            setArgs([
+            def serverArgs = [
                     '--allow-op',
                     '--disable-sentry',
-                    "--assets=${assetsZip}",
-                    "--mods=${modPaths.join(',')}"
-            ])
+                    "--assets=${assetsZip}"
+            ]
+            if (!modPaths.isEmpty()) {
+                serverArgs << "--mods=${modPaths.join(',')}"
+            }
+            setArgs(serverArgs)
         }
     }
 
     tasks.register('runServer') {
+        group = 'hytale'
+        description = 'Builds this plugin and runs a local Hytale server.'
         dependsOn 'runServerJar'
     }
 
@@ -173,6 +194,15 @@ if (hasHytaleHome) {
         }
     }
 } else {
+    tasks.register('runServer') {
+        group = 'hytale'
+        description = 'Builds this plugin and runs a local Hytale server.'
+        dependsOn 'shadowJar'
+        doLast {
+            throw new GradleException("Hytale install not detected. Set HYTALE_HOME or run with -Phytale_home=/path/to/Hytale.")
+        }
+    }
+
     tasks.register('generateVSCodeLaunch') {
         doLast {
             logger.lifecycle("Skipped VSCode launch configuration because hytale_home is not set or the install path is missing.")

@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Hytale Server",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "./gradlew --console=plain runServer",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Debug Hytale Server",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "./gradlew --console=plain runServer -Pdebug",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Attach to Hytale Debug",
+            "type": "java",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 5005
+        }
+    ]
+}

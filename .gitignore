@@ -40,7 +40,9 @@ bin/
 # VS Code
 .vscode/*
 !.vscode/java-formatter.xml
+!.vscode/launch.json
 !.vscode/settings.json
+!.vscode/tasks.json
 
 # OS files
 .DS_Store
