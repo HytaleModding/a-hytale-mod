@@ -1,0 +1,19 @@
+{
+  "Group": "HytaleModding",
+  "Name": "A-Hytale-Mod",
+  "Version": "1.0.0",
+  "Description": "A Hytale Mod, where anyone can commit changes, as long as project compiles.",
+  "Authors": [
+    {
+      "Name": "HytaleModding",
+      "Url": "https://hytalemodding.dev/"
+    }
+  ],
+  "Website": "https://github.com/HytaleModding/a-hytale-mod/",
+  "ServerVersion": "2026.04.23-3f4475f43",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "Main": ""
+}
