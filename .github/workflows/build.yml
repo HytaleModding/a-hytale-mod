@@ -24,6 +24,7 @@ jobs:
           HYTALE_VERSION=$(curl -fsSL https://maven.hytale.com/${{ matrix.hytale-tag }}/com/hypixel/hytale/Server/maven-metadata.xml | xmllint --xpath "string(//metadata/versioning/latest)" -)
           echo "Latest version: $HYTALE_VERSION"
           echo "HYTALE_VERSION=$HYTALE_VERSION" >> $GITHUB_ENV
+          echo "HYTALE_TAG=${{ matrix.hytale-tag }}" >> $GITHUB_ENV
           echo "MOD_VERSION=0.0.1-$LATEST_COMMIT_HASH" >> $GITHUB_ENV
       - name: Set up Java 25
         uses: actions/setup-java@v5

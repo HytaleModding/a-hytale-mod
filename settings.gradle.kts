@@ -9,7 +9,7 @@ plugins {
 // Create a folder named "common", then configure details with `common { }`
 
 hytale {
-    usePatchline(System.getenv("HYTALE_VERSION") ?: "release")
+    usePatchline(System.getenv("HYTALE_TAG") ?: "release")
     useVersion("latest")
 
     repositories {
