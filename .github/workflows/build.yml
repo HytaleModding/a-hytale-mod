@@ -39,6 +39,6 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: A Hytale Mod for ${{ matrix.hytale-tag }}
-          path: ./build/*.jar
+          path: ./build/libs/*.jar
           if-no-files-found: error
           
