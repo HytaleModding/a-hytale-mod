@@ -33,12 +33,14 @@ jobs:
           java-version: '25'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
+        with:
+          add-job-summary: 'on-failure'
       - name: Build for ${{ matrix.hytale-tag }}
         run: gradle build
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
           name: A Hytale Mod for ${{ matrix.hytale-tag }}
-          path: ./build/libs/*.jar
+          path: ./build/libs/A-Hytale-Mod.jar
           if-no-files-found: error
           
