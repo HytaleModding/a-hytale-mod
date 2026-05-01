@@ -7,8 +7,8 @@ import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 public class ExampleEvent {
 
     public static void onPlayerReady(PlayerReadyEvent event) {
-        Player player = event.getPlayer();
-        player.sendMessage(Message.raw("Welcome " + player.getDisplayName()));
+        PlayerRef playerRef = event.getPlayer();
+        playerRef.sendMessage(Message.raw("Welcome " + playerRef.getDisplayName()));
         System.out.println("Someone joined the server!");
     }
 
