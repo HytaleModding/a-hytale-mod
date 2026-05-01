@@ -13,7 +13,7 @@ public class ExampleEvent {
         Ref<EntityStore> ref = event.getPlayerRef();
         PlayerRef playerRef = ref.getStore().getComponent(ref, PlayerRef.getComponentType());
         assert playerRef != null;
-        playerRef.sendMessage(Message.raw("Welcome " + event.getPlayer().getDisplayName()));
+        playerRef.sendMessage(Message.raw("Welcome " + playerRef.getUsername()));
         System.out.println("Someone joined the server!");
     }
 
