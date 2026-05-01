@@ -9,6 +9,7 @@ public class ExampleEvent {
     public static void onPlayerReady(PlayerReadyEvent event) {
         Player player = event.getPlayer();
         player.sendMessage(Message.raw("Welcome " + player.getDisplayName()));
+        System.out.println("Someone joined the server!");
     }
 
 }
