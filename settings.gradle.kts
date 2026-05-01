@@ -1,4 +1,4 @@
-rootProject.name = "dev.hytalemodding"
+rootProject.name = "A-Hytale-Mod"
 
 plugins {
     // See documentation on https://scaffoldit.dev
@@ -9,7 +9,7 @@ plugins {
 // Create a folder named "common", then configure details with `common { }`
 
 hytale {
-    usePatchline("release")
+    usePatchline(System.getenv("HYTALE_VERSION") ?: "release")
     useVersion("latest")
 
     repositories {
@@ -21,8 +21,9 @@ hytale {
     }
 
     manifest {
-        Group = "HytaleModding"
-        Name = "ExamplePlugin"
-        Main = "dev.hytalemodding.ExamplePlugin"
+        Group = "dev.hytalemodding"
+        Name = "AHytaleMod"
+        Main = "dev.hytalemodding.AHytaleMod"
+        Version = System.getenv("MOD_VERSION") ?: "0.0.1-SNAPSHOT"
     }
 }
