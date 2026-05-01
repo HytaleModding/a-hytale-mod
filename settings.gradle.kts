@@ -2,7 +2,7 @@ rootProject.name = "A-Hytale-Mod"
 
 plugins {
     // See documentation on https://scaffoldit.dev
-    id("dev.scaffoldit") version "0.2.15-dev6"
+    id("dev.scaffoldit") version "0.2.15-dev7"
 }
 
 // Would you like to do a split project?
