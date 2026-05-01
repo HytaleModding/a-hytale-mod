@@ -1,0 +1,30 @@
+{
+  "Interactions": [
+    {
+      "Type": "Condition",
+      "Crouching": true,
+      "Next": "Block_Secondary",
+      "Failed": {
+        "Type": "Replace",
+        "Var": "Guard_Start",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Weapon_Mace_Secondary_Guard"
+          ]
+        }
+      }
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Rules": {
+    "Interrupting": [
+      "Primary"
+    ]
+  },
+  "RequireNewClick": true
+}

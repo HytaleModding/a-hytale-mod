@@ -1,0 +1,358 @@
+{
+  "Parent": "Template_Weapon_Mace",
+  "TranslationProperties": {
+    "Name": "gaia body pillow",
+    "Description": "..."
+  },
+  "Model": "Blocks/gaia_body_pillow.blockymodel",
+  "Texture": "Blocks/gaia_body_pillow.png",
+  "Set": "Furniture_Misc",
+  "Scale": 2.0,
+  "MaxStack": 100,
+  "Categories": [
+    "Items.Weapons",
+    "Blocks.Deco"
+  ],
+  "Tags": {
+    "Type": [
+      "Weapon",
+      "Deco"
+    ],
+    "Family": [
+      "Mace"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Weapons_Blunt_Small",
+  "Quality": "Common",
+  "ItemLevel": 1,
+  "MaxDurability": 69,
+  "DurabilityLossOnHit": 0.5,
+  "Weapon": {
+    "EntityStatsToClear": [
+      "SignatureEnergy"
+    ],
+    "StatModifiers": {
+      "SignatureEnergy": [
+        {
+          "Amount": 8,
+          "CalculationType": "Additive"
+        }
+      ]
+    }
+  },
+  "Interactions": {
+    "Primary": "Root_Weapon_Mace_Primary",
+    "Secondary": "Root_Weapon_Pillow_Secondary",
+    "Ability1": "Root_Weapon_Mace_Signature_Groundslam"
+  },
+  "InteractionVars": {
+    "Swing_Left_Start": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Left",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Swing",
+            "LocalSoundEventId": "SFX_Mace_T1_Swing_RL_Local"
+          }
+        }
+      ]
+    },
+    "Swing_Right_Start": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Right",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Swing",
+            "LocalSoundEventId": "SFX_Mace_T1_Swing_LR_Local"
+          }
+        }
+      ]
+    },
+    "Swing_Up_Left_Start": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Up_Left",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Swing",
+            "LocalSoundEventId": "SFX_Mace_T1_Swing_Up_Local"
+          }
+        }
+      ]
+    },
+    "Swing_Left_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Left_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 32
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        },
+        {
+          "Type": "ChangeStat",
+          "StatModifiers": {
+            "SignatureEnergy": 1
+          }
+        }
+      ]
+    },
+    "Swing_Right_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Right_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 32
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        },
+        {
+          "Type": "ChangeStat",
+          "StatModifiers": {
+            "SignatureEnergy": 1
+          }
+        }
+      ]
+    },
+    "Swing_Up_Left_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Up_Left_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 32
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        },
+        {
+          "Type": "ChangeStat",
+          "StatModifiers": {
+            "SignatureEnergy": 1
+          }
+        }
+      ]
+    },
+    "Swing_Left_Charged_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Left_Charged_Selector",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Swing_Charged",
+            "LocalSoundEventId": "SFX_Mace_T1_Swing_Charged_RL_Local"
+          }
+        }
+      ]
+    },
+    "Swing_Left_Charged_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Left_Charged_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 64
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        },
+        {
+          "Type": "ChangeStat",
+          "StatModifiers": {
+            "SignatureEnergy": 1
+          }
+        }
+      ]
+    },
+    "Swing_Right_Charged_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Right_Charged_Selector",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Swing_Charged",
+            "LocalSoundEventId": "SFX_Mace_T1_Swing_Charged_LR_Local"
+          }
+        }
+      ]
+    },
+    "Swing_Right_Charged_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Right_Charged_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 64
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        },
+        {
+          "Type": "ChangeStat",
+          "StatModifiers": {
+            "SignatureEnergy": 1
+          }
+        }
+      ]
+    },
+    "Swing_Up_Left_Charged_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Up_Left_Charged_Selector",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Swing_Charged",
+            "LocalSoundEventId": "SFX_Mace_T1_Swing_Charged_Up_Local"
+          }
+        }
+      ]
+    },
+    "Swing_Up_Left_Charged_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Primary_Swing_Up_Left_Charged_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 64
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        },
+        {
+          "Type": "ChangeStat",
+          "StatModifiers": {
+            "SignatureEnergy": 1
+          }
+        }
+      ]
+    },
+    "Groundslam_Swing_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Signature_Groundslam_Swing_Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Offset": {
+              "Z": -1.5
+            },
+            "Range": 8
+          }
+        }
+      ]
+    },
+    "Groundslam_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Mace_Signature_Groundslam_Damage",
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Mace_T1_Impact",
+            "LocalSoundEventId": "SFX_Mace_T1_Impact",
+            "Knockback": {
+              "Force": 64
+            }
+          },
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "CustomModel": "Blocks/gaia_body_pillow.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/gaia_body_pillow.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "Group": "Wood",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "BlockParticleSetId": "Stone"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Cloth_Block_Wool_White",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Cloth_Block_Wool_Green",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Fibre",
+        "Quantity": 16
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Furniture_Bench",
+        "Categories": [
+          "Furniture_Misc"
+        ]
+      }
+    ],
+    "TimeSeconds": 8
+  },
+  "IconProperties": {
+    "Scale": 1.6,
+    "Rotation": [
+      172,
+      71,
+      81
+    ],
+    "Translation": [
+      -9,
+      -17
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/gaia_body_pillow.png"
+}
