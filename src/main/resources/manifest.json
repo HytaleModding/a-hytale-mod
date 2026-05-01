@@ -14,6 +14,6 @@
     "IncludesAssetPack": false,
     "Dependencies": {},
     "OptionalDependencies": {},
-    "ServerVersion": "2026.04.23-3f4475f43",
+    "ServerVersion": "2026.03.26-89796e57b",
     "Main": "dev.hytalemodding.ExamplePlugin"
 }

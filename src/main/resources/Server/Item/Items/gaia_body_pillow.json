@@ -1,8 +1,8 @@
 {
   "Parent": "Template_Weapon_Mace",
   "TranslationProperties": {
-    "Name": "pillows_n_plushies.items.gaia_body_pillow.name",
-    "Description": "pillows_n_plushies.items.gaia_body_pillow.description"
+    "Name": "gaia body pillow",
+    "Description": "..."
   },
   "Model": "Blocks/gaia_body_pillow.blockymodel",
   "Texture": "Blocks/gaia_body_pillow.png",
