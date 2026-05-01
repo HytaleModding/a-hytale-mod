@@ -8,9 +8,9 @@ import dev.hytalemodding.events.ExampleEvent;
 
 import javax.annotation.Nonnull;
 
-public class ExamplePlugin extends JavaPlugin {
+public class AHytaleMod extends JavaPlugin {
 
-    public ExamplePlugin(@Nonnull JavaPluginInit init) {
+    public AHytaleMod(@Nonnull JavaPluginInit init) {
         super(init);
     }
 
