@@ -1,8 +1,17 @@
 rootProject.name = "A-Hytale-Mod"
 
+pluginManagement {
+  repositories {
+    maven {
+      name = "hytalemodding"
+      url = "https://maven.hytalemodding.dev/releases"
+    }
+  }
+}
+
 plugins {
     // See documentation on https://scaffoldit.dev
-    id("dev.scaffoldit") version "0.2.+"
+    id("dev.scaffoldit") version "0.2.15-dev6"
 }
 
 // Would you like to do a split project?

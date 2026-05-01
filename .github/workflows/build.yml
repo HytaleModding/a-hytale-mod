@@ -34,7 +34,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
       - name: Build for ${{ matrix.hytale-tag }}
-        run: gradle classes
+        run: gradle build
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
