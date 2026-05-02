@@ -4,6 +4,6 @@
     "Version": "0.0.1-SNAPSHOT",
     "Authors": [],
     "DisabledByDefault": false,
-    "IncludesAssetPack": false,
+    "IncludesAssetPack": true,
     "Main": "dev.hytalemodding.AHytaleMod"
 }
