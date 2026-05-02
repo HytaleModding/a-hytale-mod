@@ -1,0 +1,77 @@
+{
+  "Enabled": true,
+  "JoinMessagesEnabled": true,
+  "PeriodicMessagesEnabled": true,
+  "RareChance": 0.05,
+  "PeriodicIntervalSeconds": 600,
+  "Join": {
+    "Enabled": true,
+    "Delivery": "Server",
+    "Messages": [
+      "Welcome, {player}. The pillow remembers.",
+      "{player} has joined. Everyone act normal around the pillow.",
+      "The Gaia body pillow has accepted {player} as temporarily real.",
+      "{player} entered the world. Comfort levels are now unstable.",
+      "Welcome {player}. The project still compiles, somehow.",
+      "A new contributor approaches. May their merge conflicts be decorative.",
+      "{player} loaded successfully. Source jar not included.",
+      "Warning: {player} has spawned with experimental confidence.",
+      "Server notice: {player} is not a valid crafting ingredient.",
+      "Initializing {player}... done. Regret module enabled.",
+      "Patch notes: Added {player}. Known issue: {player}.",
+      "{player} has crossed the threshold. The logs whisper.",
+      "A traveler arrives, carrying absolutely no context.",
+      "{player} appears. The realm lowers its expectations.",
+      "The prophecy mentioned someone else, but {player} will do."
+    ]
+  },
+  "JoinRare": {
+    "Enabled": true,
+    "Delivery": "Server",
+    "Messages": [
+      "THE PILLOW HAS CHOSEN {player}.",
+      "{player} joined and the server briefly considered becoming stable.",
+      "A hush falls over the world. {player} has found the join button.",
+      "All hail {player}, temporary maintainer of the vibe."
+    ]
+  },
+  "Periodic": {
+    "Enabled": true,
+    "Delivery": "Server",
+    "Messages": [
+      "The pillow emits a low hum. This is probably fine.",
+      "Reminder: the codebase is legally distinct from a plan.",
+      "Server wellness check: still compiling in spirit.",
+      "A distant voice whispers: do not remove any lines of code.",
+      "The pillow shifts slightly. Nobody saw it happen.",
+      "Server status: emotionally available, technically unstable.",
+      "Reminder: deleting code is not a personality.",
+      "The build passed once and has been chasing that feeling ever since.",
+      "The pillow requests fewer questions and more snacks.",
+      "Somewhere, a TODO just became load-bearing.",
+      "Server notice: confidence has been temporarily increased by 3%.",
+      "The logs are quiet. Too quiet. Suspiciously professional.",
+      "A faint hum comes from the mods folder.",
+      "Periodic reminder: if it works, it was intentional.",
+      "The pillow has reviewed the code and has concerns.",
+      "World stability check complete. Results withheld.",
+      "Someone just thought about refactoring. The server noticed.",
+      "The changelog grows stronger every minute.",
+      "Server morale is holding steady at 'probably fine'.",
+      "The pillow has entered low-power judgment mode.",
+      "Reminder: this feature was always part of the plan, retroactively.",
+      "The server briefly considered documentation, then moved on.",
+      "The pillow is not a valid dependency, but it is trying.",
+      "All systems nominal, assuming a generous definition of nominal.",
+      "The repo whispers: please commit responsibly.",
+      "Periodic chaos audit complete. Chaos remains within acceptable limits.",
+      "The server has detected a suspicious amount of ambition.",
+      "The pillow remembers the last successful build.",
+      "Warning: excessive stability may attract expectations.",
+      "The codebase stretches, sighs, and continues existing.",
+      "Server reminder: merge conflicts are a social construct until they are not.",
+      "The pillow emits one approval vibration.",
+      "Alec was here!"
+    ]
+  }
+}
