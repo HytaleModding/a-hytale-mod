@@ -24,6 +24,6 @@ hytale {
         Group = "dev.hytalemodding"
         Name = "AHytaleMod"
         Main = "dev.hytalemodding.AHytaleMod"
-        Version = System.getenv("MOD_VERSION") ?: "0.0.1-SNAPSHOT"
+        Version = System.getenv("MOD_VERSION") ?: "0.0.2-SNAPSHOT"
     }
 }

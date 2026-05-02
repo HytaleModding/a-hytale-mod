@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 0.0.2-SNAPSHOT
 
 ### Added
 
@@ -13,3 +13,4 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - Enabled the bundled asset pack so the Gaia body pillow item, model, texture, icon, and language assets can load in game.
+- Added a target server version declaration for `2026.03.26-89796e57b`.
