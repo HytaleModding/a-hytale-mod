@@ -8,6 +8,7 @@ import com.hypixel.hytale.server.core.universe.world.events.RemoveWorldEvent;
 import com.hypixel.hytale.server.core.util.Config;
 import dev.hytalemodding.commands.ExampleCommand;
 import dev.hytalemodding.events.ChaoticMessageEvent;
+import dev.hytalemodding.events.ExampleEvent;
 import dev.hytalemodding.messages.ChaoticMessageConfig;
 import dev.hytalemodding.messages.ChaoticMessageService;
 
@@ -29,6 +30,7 @@ public class AHytaleMod extends JavaPlugin {
         this.chaoticMessageService = new ChaoticMessageService(this.chaoticMessageConfig);
 
         this.getCommandRegistry().registerCommand(new ExampleCommand("example", "An example command"));
+        this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, ExampleEvent::onPlayerReady);
         ChaoticMessageEvent chaoticMessageEvent = new ChaoticMessageEvent(this.chaoticMessageService);
         this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, chaoticMessageEvent::onPlayerReady);
         this.getEventRegistry().registerGlobal(AddWorldEvent.class, event -> this.chaoticMessageService.trackWorld(event.getWorld()));
