@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Added global or player-only delivery settings for each message category.
 - Added configurable rare join messages and periodic server broadcasts.
 - Added Asset Editor visibility support for AHytaleMod's embedded asset pack.
+- Simplified chaotic message asset categories to `Join`, `JoinRare`, and `Periodic`.
 
 ### Fixed
 

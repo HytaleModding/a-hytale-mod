@@ -99,24 +99,15 @@ public class ChaoticMessageService {
     }
 
     private SelectedMessage selectJoinMessage(@Nonnull ChaoticMessageAsset currentConfig) {
-        ChaoticMessageAsset.MessageCategory rareLegendary = currentConfig.getRareLegendary();
-        if (rareLegendary.isEnabled() && ThreadLocalRandom.current().nextDouble() < currentConfig.getRareChance()) {
-            SelectedMessage rareMessage = selectFromCategory(rareLegendary);
+        ChaoticMessageAsset.MessageCategory joinRare = currentConfig.getJoinRare();
+        if (joinRare.isEnabled() && ThreadLocalRandom.current().nextDouble() < currentConfig.getRareChance()) {
+            SelectedMessage rareMessage = selectFromCategory(joinRare);
             if (rareMessage != null) {
                 return rareMessage;
             }
         }
 
-        List<SelectedMessage> candidates = new ArrayList<>();
-        addCategoryMessages(candidates, currentConfig.getPillowLore());
-        addCategoryMessages(candidates, currentConfig.getRepoChaos());
-        addCategoryMessages(candidates, currentConfig.getFakeSystem());
-        addCategoryMessages(candidates, currentConfig.getOverdramaticFantasy());
-
-        if (candidates.isEmpty()) {
-            return null;
-        }
-        return candidates.get(ThreadLocalRandom.current().nextInt(candidates.size()));
+        return selectFromCategory(currentConfig.getJoin());
     }
 
     private SelectedMessage selectFromCategory(ChaoticMessageAsset.MessageCategory category) {

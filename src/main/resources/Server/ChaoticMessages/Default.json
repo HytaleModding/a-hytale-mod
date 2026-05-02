@@ -4,47 +4,29 @@
   "PeriodicMessagesEnabled": true,
   "RareChance": 0.05,
   "PeriodicIntervalSeconds": 600,
-  "PillowLore": {
+  "Join": {
     "Enabled": true,
     "Delivery": "Server",
     "Messages": [
       "Welcome, {player}. The pillow remembers.",
       "{player} has joined. Everyone act normal around the pillow.",
       "The Gaia body pillow has accepted {player} as temporarily real.",
-      "{player} entered the world. Comfort levels are now unstable."
-    ]
-  },
-  "RepoChaos": {
-    "Enabled": true,
-    "Delivery": "Server",
-    "Messages": [
+      "{player} entered the world. Comfort levels are now unstable.",
       "Welcome {player}. The project still compiles, somehow.",
       "{player} joined. Please do not remove any lines of code.",
       "A new contributor approaches. May their merge conflicts be decorative.",
-      "{player} loaded successfully. Source jar not included."
-    ]
-  },
-  "FakeSystem": {
-    "Enabled": true,
-    "Delivery": "Server",
-    "Messages": [
+      "{player} loaded successfully. Source jar not included.",
       "Warning: {player} has spawned with experimental confidence.",
       "Server notice: {player} is not a valid crafting ingredient.",
       "Initializing {player}... done. Regret module enabled.",
-      "Patch notes: Added {player}. Known issue: {player}."
-    ]
-  },
-  "OverdramaticFantasy": {
-    "Enabled": true,
-    "Delivery": "Server",
-    "Messages": [
+      "Patch notes: Added {player}. Known issue: {player}.",
       "{player} has crossed the threshold. The logs whisper.",
       "A traveler arrives, carrying absolutely no context.",
       "{player} appears. The realm lowers its expectations.",
       "The prophecy mentioned someone else, but {player} will do."
     ]
   },
-  "RareLegendary": {
+  "JoinRare": {
     "Enabled": true,
     "Delivery": "Server",
     "Messages": [

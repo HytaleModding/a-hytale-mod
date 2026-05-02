@@ -37,15 +37,9 @@ public class ChaoticMessageAsset implements JsonAssetWithMap<String, DefaultAsse
                     .add()
                     .<Double>append(new KeyedCodec<>("PeriodicIntervalSeconds", Codec.DOUBLE), (o, v) -> o.periodicIntervalSeconds = v == null ? 600.0 : v, o -> o.periodicIntervalSeconds)
                     .add()
-                    .<MessageCategory>append(new KeyedCodec<>("PillowLore", MessageCategory.CODEC), (o, v) -> o.pillowLore = v == null ? new MessageCategory() : v, o -> o.pillowLore)
+                    .<MessageCategory>append(new KeyedCodec<>("Join", MessageCategory.CODEC), (o, v) -> o.join = v == null ? new MessageCategory() : v, o -> o.join)
                     .add()
-                    .<MessageCategory>append(new KeyedCodec<>("RepoChaos", MessageCategory.CODEC), (o, v) -> o.repoChaos = v == null ? new MessageCategory() : v, o -> o.repoChaos)
-                    .add()
-                    .<MessageCategory>append(new KeyedCodec<>("FakeSystem", MessageCategory.CODEC), (o, v) -> o.fakeSystem = v == null ? new MessageCategory() : v, o -> o.fakeSystem)
-                    .add()
-                    .<MessageCategory>append(new KeyedCodec<>("OverdramaticFantasy", MessageCategory.CODEC), (o, v) -> o.overdramaticFantasy = v == null ? new MessageCategory() : v, o -> o.overdramaticFantasy)
-                    .add()
-                    .<MessageCategory>append(new KeyedCodec<>("RareLegendary", MessageCategory.CODEC), (o, v) -> o.rareLegendary = v == null ? new MessageCategory() : v, o -> o.rareLegendary)
+                    .<MessageCategory>append(new KeyedCodec<>("JoinRare", MessageCategory.CODEC), (o, v) -> o.joinRare = v == null ? new MessageCategory() : v, o -> o.joinRare)
                     .add()
                     .<MessageCategory>append(new KeyedCodec<>("Periodic", MessageCategory.CODEC), (o, v) -> o.periodic = v == null ? new MessageCategory() : v, o -> o.periodic)
                     .add()
@@ -60,11 +54,8 @@ public class ChaoticMessageAsset implements JsonAssetWithMap<String, DefaultAsse
     private boolean periodicMessagesEnabled = true;
     private double rareChance = 0.05;
     private double periodicIntervalSeconds = 600.0;
-    private MessageCategory pillowLore = new MessageCategory();
-    private MessageCategory repoChaos = new MessageCategory();
-    private MessageCategory fakeSystem = new MessageCategory();
-    private MessageCategory overdramaticFantasy = new MessageCategory();
-    private MessageCategory rareLegendary = new MessageCategory();
+    private MessageCategory join = new MessageCategory();
+    private MessageCategory joinRare = new MessageCategory();
     private MessageCategory periodic = new MessageCategory();
 
     public static AssetStore<String, ChaoticMessageAsset, DefaultAssetMap<String, ChaoticMessageAsset>> getAssetStore() {
@@ -116,24 +107,12 @@ public class ChaoticMessageAsset implements JsonAssetWithMap<String, DefaultAsse
         return Math.max(1L, Math.round(periodicIntervalSeconds));
     }
 
-    public MessageCategory getPillowLore() {
-        return pillowLore;
+    public MessageCategory getJoin() {
+        return join;
     }
 
-    public MessageCategory getRepoChaos() {
-        return repoChaos;
-    }
-
-    public MessageCategory getFakeSystem() {
-        return fakeSystem;
-    }
-
-    public MessageCategory getOverdramaticFantasy() {
-        return overdramaticFantasy;
-    }
-
-    public MessageCategory getRareLegendary() {
-        return rareLegendary;
+    public MessageCategory getJoinRare() {
+        return joinRare;
     }
 
     public MessageCategory getPeriodic() {
