@@ -9,11 +9,11 @@ import dev.hytalemodding.messages.ChaoticMessageService;
 
 import javax.annotation.Nonnull;
 
-public class ExampleEvent {
+public class ChaoticMessageEvent {
 
     private final ChaoticMessageService chaoticMessageService;
 
-    public ExampleEvent(@Nonnull ChaoticMessageService chaoticMessageService) {
+    public ChaoticMessageEvent(@Nonnull ChaoticMessageService chaoticMessageService) {
         this.chaoticMessageService = chaoticMessageService;
     }
 
