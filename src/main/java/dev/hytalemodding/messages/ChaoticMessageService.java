@@ -7,7 +7,6 @@ import com.hypixel.hytale.server.core.task.TaskRegistry;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -21,12 +20,11 @@ import java.util.concurrent.TimeUnit;
 public class ChaoticMessageService {
 
     private static final String PLAYER_PLACEHOLDER = "{player}";
-    private final Config<ChaoticMessageConfig> config;
+    private static final ChaoticMessageAsset FALLBACK_CONFIG = new ChaoticMessageAsset();
     private final Set<World> activeWorlds = ConcurrentHashMap.newKeySet();
     private ScheduledFuture<Void> periodicTask;
 
-    public ChaoticMessageService(@Nonnull Config<ChaoticMessageConfig> config) {
-        this.config = config;
+    public ChaoticMessageService() {
     }
 
     @SuppressWarnings("unchecked")
@@ -63,7 +61,7 @@ public class ChaoticMessageService {
             trackWorld(world);
         }
 
-        ChaoticMessageConfig currentConfig = getConfig();
+        ChaoticMessageAsset currentConfig = getConfig();
         if (!currentConfig.isEnabled() || !currentConfig.isJoinMessagesEnabled()) {
             return;
         }
@@ -77,7 +75,7 @@ public class ChaoticMessageService {
     }
 
     private void broadcastPeriodicMessage() {
-        ChaoticMessageConfig currentConfig = getConfig();
+        ChaoticMessageAsset currentConfig = getConfig();
         if (!currentConfig.isEnabled() || !currentConfig.isPeriodicMessagesEnabled()) {
             return;
         }
@@ -100,8 +98,8 @@ public class ChaoticMessageService {
         }
     }
 
-    private SelectedMessage selectJoinMessage(@Nonnull ChaoticMessageConfig currentConfig) {
-        ChaoticMessageConfig.MessageCategory rareLegendary = currentConfig.getRareLegendary();
+    private SelectedMessage selectJoinMessage(@Nonnull ChaoticMessageAsset currentConfig) {
+        ChaoticMessageAsset.MessageCategory rareLegendary = currentConfig.getRareLegendary();
         if (rareLegendary.isEnabled() && ThreadLocalRandom.current().nextDouble() < currentConfig.getRareChance()) {
             SelectedMessage rareMessage = selectFromCategory(rareLegendary);
             if (rareMessage != null) {
@@ -121,7 +119,7 @@ public class ChaoticMessageService {
         return candidates.get(ThreadLocalRandom.current().nextInt(candidates.size()));
     }
 
-    private SelectedMessage selectFromCategory(ChaoticMessageConfig.MessageCategory category) {
+    private SelectedMessage selectFromCategory(ChaoticMessageAsset.MessageCategory category) {
         if (category == null || !category.isEnabled()) {
             return null;
         }
@@ -135,7 +133,7 @@ public class ChaoticMessageService {
 
     private void addCategoryMessages(
             @Nonnull List<SelectedMessage> candidates,
-            ChaoticMessageConfig.MessageCategory category
+            ChaoticMessageAsset.MessageCategory category
     ) {
         if (category == null || !category.isEnabled() || category.getMessages() == null) {
             return;
@@ -147,7 +145,7 @@ public class ChaoticMessageService {
         }
     }
 
-    private Delivery resolveDelivery(@Nonnull ChaoticMessageConfig.MessageCategory category) {
+    private Delivery resolveDelivery(@Nonnull ChaoticMessageAsset.MessageCategory category) {
         return "Player".equalsIgnoreCase(category.getDelivery()) ? Delivery.PLAYER : Delivery.SERVER;
     }
 
@@ -186,8 +184,9 @@ public class ChaoticMessageService {
         return message.replace(PLAYER_PLACEHOLDER, username);
     }
 
-    private ChaoticMessageConfig getConfig() {
-        return config.get();
+    private ChaoticMessageAsset getConfig() {
+        ChaoticMessageAsset asset = ChaoticMessageAsset.getDefaultAsset();
+        return asset == null ? FALLBACK_CONFIG : asset;
     }
 
     private enum Delivery {

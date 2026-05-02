@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- Added configurable chaotic server messages backed by a JSON plugin config.
+- Added configurable chaotic server messages backed by a custom JSON asset type.
+- Added the default chaotic message set under `Server/ChaoticMessages/Default.json`.
 - Added global or player-only delivery settings for each message category.
 - Added configurable rare join messages and periodic server broadcasts.
 
