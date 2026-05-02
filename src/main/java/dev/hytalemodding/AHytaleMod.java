@@ -28,12 +28,24 @@ public class AHytaleMod extends JavaPlugin {
 
     @Override
     protected void setup() {
+        setupAssetEditorIntegration();
+        registerExampleFeatures();
+        setupChaoticMessages();
+    }
+
+    private void registerExampleFeatures() {
+        this.getCommandRegistry().registerCommand(new ExampleCommand("example", "An example command"));
+        this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, ExampleEvent::onPlayerReady);
+    }
+
+    private void setupAssetEditorIntegration() {
         this.assetPackCoordinator = new AHytaleModAssetPackCoordinator(this);
+    }
+
+    private void setupChaoticMessages() {
         registerChaoticMessageAssets();
         this.chaoticMessageService = new ChaoticMessageService();
 
-        this.getCommandRegistry().registerCommand(new ExampleCommand("example", "An example command"));
-        this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, ExampleEvent::onPlayerReady);
         ChaoticMessageEvent chaoticMessageEvent = new ChaoticMessageEvent(this.chaoticMessageService);
         this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, chaoticMessageEvent::onPlayerReady);
         this.getEventRegistry().registerGlobal(AddWorldEvent.class, event -> this.chaoticMessageService.trackWorld(event.getWorld()));
@@ -64,10 +76,18 @@ public class AHytaleMod extends JavaPlugin {
 
     @Override
     protected void shutdown() {
+        shutdownChaoticMessages();
+        shutdownAssetEditorIntegration();
+    }
+
+    private void shutdownChaoticMessages() {
         if (this.chaoticMessageService != null) {
             this.chaoticMessageService.shutdown();
             this.chaoticMessageService = null;
         }
+    }
+
+    private void shutdownAssetEditorIntegration() {
         this.assetPackCoordinator = null;
     }
 }

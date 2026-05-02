@@ -13,7 +13,6 @@
       "The Gaia body pillow has accepted {player} as temporarily real.",
       "{player} entered the world. Comfort levels are now unstable.",
       "Welcome {player}. The project still compiles, somehow.",
-      "{player} joined. Please do not remove any lines of code.",
       "A new contributor approaches. May their merge conflicts be decorative.",
       "{player} loaded successfully. Source jar not included.",
       "Warning: {player} has spawned with experimental confidence.",
@@ -71,7 +70,8 @@
       "Warning: excessive stability may attract expectations.",
       "The codebase stretches, sighs, and continues existing.",
       "Server reminder: merge conflicts are a social construct until they are not.",
-      "The pillow emits one approval vibration."
+      "The pillow emits one approval vibration.",
+      "Alec was here!"
     ]
   }
 }
