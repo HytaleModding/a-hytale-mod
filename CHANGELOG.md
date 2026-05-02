@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Added the default chaotic message set under `Server/ChaoticMessages/Default.json`.
 - Added global or player-only delivery settings for each message category.
 - Added configurable rare join messages and periodic server broadcasts.
+- Added Asset Editor visibility support for AHytaleMod's embedded asset pack.
 
 ### Fixed
 

@@ -7,6 +7,7 @@ import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.RemoveWorldEvent;
+import dev.hytalemodding.assets.AHytaleModAssetPackCoordinator;
 import dev.hytalemodding.commands.ExampleCommand;
 import dev.hytalemodding.events.ChaoticMessageEvent;
 import dev.hytalemodding.events.ExampleEvent;
@@ -18,6 +19,7 @@ import javax.annotation.Nonnull;
 public class AHytaleMod extends JavaPlugin {
 
     private ChaoticMessageService chaoticMessageService;
+    private AHytaleModAssetPackCoordinator assetPackCoordinator;
     private boolean chaoticMessageAssetsRegistered;
 
     public AHytaleMod(@Nonnull JavaPluginInit init) {
@@ -26,6 +28,7 @@ public class AHytaleMod extends JavaPlugin {
 
     @Override
     protected void setup() {
+        this.assetPackCoordinator = new AHytaleModAssetPackCoordinator(this);
         registerChaoticMessageAssets();
         this.chaoticMessageService = new ChaoticMessageService();
 
@@ -36,6 +39,13 @@ public class AHytaleMod extends JavaPlugin {
         this.getEventRegistry().registerGlobal(AddWorldEvent.class, event -> this.chaoticMessageService.trackWorld(event.getWorld()));
         this.getEventRegistry().registerGlobal(RemoveWorldEvent.class, event -> this.chaoticMessageService.untrackWorld(event.getWorld()));
         this.chaoticMessageService.startPeriodicMessages(this.getTaskRegistry());
+    }
+
+    @Override
+    protected void start() {
+        if (this.assetPackCoordinator != null) {
+            this.assetPackCoordinator.ensureAssetEditorPackVisible();
+        }
     }
 
     private void registerChaoticMessageAssets() {
@@ -58,5 +68,6 @@ public class AHytaleMod extends JavaPlugin {
             this.chaoticMessageService.shutdown();
             this.chaoticMessageService = null;
         }
+        this.assetPackCoordinator = null;
     }
 }
